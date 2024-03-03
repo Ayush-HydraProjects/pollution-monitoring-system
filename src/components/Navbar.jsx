@@ -88,8 +88,6 @@ const Navbar = () => {
 
   return (
     <div className="landing-page">
-      <div className="background-image">
-      </div>
       <div className="content">
         <h1 className='welcome'>Welcome to Our Website to Track Pollution</h1>
       </div>

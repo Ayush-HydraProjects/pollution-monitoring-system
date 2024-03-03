@@ -11,8 +11,7 @@ const Home = () => {
 
   return (
     <div className="app">
-      <h1>Google Map Example</h1>
-      <Map location={location} zoomLevel={zoomLevel} />
+      <h1>Hellolahsdkfghlksdhgfklh</h1>
     </div>
   );
 }

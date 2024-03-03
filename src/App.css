@@ -4,37 +4,40 @@
 .sidebar {
   box-shadow: rgb(113 122 131 / 11%) 0px 7px 30px 0px;
 }
+
 .nav-item,
 .navbar {
   z-index: 10000;
 }
-@media  screen and (max-width:800px) {
-  .sidebar{
+
+@media screen and (max-width:800px) {
+  .sidebar {
     z-index: 10000000;
   }
 }
 
-.e-dlg-center-center, .e-quick-popup-wrapper.e-device{
+.e-dlg-center-center,
+.e-quick-popup-wrapper.e-device {
   z-index: 1000000 !important;
 }
 
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: rgb(216, 216, 216);
   border-radius: 40px;
 }
+
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
 /* color-picker style  */
 
- #preview {
-  background: transparent
-    url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png')
-    no-repeat;
+#preview {
+  background: transparent url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png') no-repeat;
   display: inline-block;
   height: 80px;
   margin: 10px 0;
@@ -93,6 +96,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -108,7 +112,7 @@
   max-height: 25%;
 }
 
-.con{
+.con {
   font-size: 1.3rem;
 }
 
@@ -135,20 +139,10 @@
   position: relative;
   height: 10vh;
   overflow: hidden;
-}
-
-.background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: flex;
   width: 100%;
-  height: 100%;
-  background-image: url(bg-image.jpg); 
-  /* Replace 'background-image.jpg' with the path to your background image */
-  background-size: cover;
-  background-position: center;
-  opacity: 0.8;
-  z-index: -1;
+  justify-content: center;
+  align-items: center;
 }
 
 .content {
@@ -158,18 +152,22 @@
   justify-content: center;
   align-items: center;
   color: white;
-  padding-top: 5px;
 }
 
 .welcome {
   font-size: 1.9rem;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+
 }
 
 
 
-.e-input-group:not(.e-float-icon-left), .e-input-group.e-success:not(.e-float-icon-left), .e-input-group.e-warning:not(.e-float-icon-left), .e-input-group.e-error:not(.e-float-icon-left), .e-input-group.e-control-wrapper:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-success:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-warning:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left){
+.e-input-group:not(.e-float-icon-left),
+.e-input-group.e-success:not(.e-float-icon-left),
+.e-input-group.e-warning:not(.e-float-icon-left),
+.e-input-group.e-error:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-success:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-warning:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left) {
   border: none;
 }
