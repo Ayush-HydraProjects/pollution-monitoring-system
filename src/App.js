@@ -10,6 +10,7 @@ import './App.css';
 import { useStateContext } from './contexts/ContextProvider';
 import WaterPollution from './pages/Waterpollution';
 import Home from './pages/Home';
+import AirPollution from './pages/AirPollution';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
@@ -69,7 +70,7 @@ const App = () => {
               <Routes>
                 {/* dashboard  */}
                 <Route path="/" element={(<Home />)} />
-                <Route path="/AirPollutionChart" element={(<Ecommerce />)} />
+                <Route path="/AirPollutionChart" element={(<AirPollution />)} />
                 <Route path="/WaterPollutionChart" element={(<WaterPollution />)} />
 
                 {/* pages  */}

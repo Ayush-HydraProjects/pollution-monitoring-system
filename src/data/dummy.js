@@ -11,14 +11,14 @@ import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
 import avatar4 from './avatar4.jpg';
-import product1 from './product1.jpg';
-import product2 from './product2.jpg';
-import product3 from './product3.jpg';
-import product4 from './product4.jpg';
+// import product1 from './product1.jpg';
+// import product2 from './product2.jpg';
+// import product3 from './product3.jpg';
+// import product4 from './product4.jpg';
 import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
-import product8 from './product8.jpg';
+// import product8 from './product8.jpg';
 
 export const gridOrderImage = (props) => (
   <div>
@@ -300,6 +300,8 @@ export const FinancialPrimaryXAxis = {
   majorGridLines: { width: 0 },
 };
 
+
+
 export const FinancialPrimaryYAxis = {
   title: 'Price',
   minimum: 100,
@@ -311,8 +313,9 @@ export const FinancialPrimaryYAxis = {
 
 export const LinePrimaryXAxis = {
   valueType: 'DateTime',
-  labelFormat: 'y',
-  intervalType: 'Years',
+  // labelFormat: 'y',
+  labelFormat: 'MMMM',
+  intervalType: 'Months',
   edgeLabelPlacement: 'Shift',
   majorGridLines: { width: 0 },
   background: 'white',
@@ -323,11 +326,85 @@ export const LinePrimaryYAxis = {
   rangePadding: 'None',
   minimum: 0,
   maximum: 100,
-  interval: 20,
+  interval: 10,
   lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
 };
+
+export const lineChartData = [
+  [
+    { x: new Date(2005, 0, 1), y: 21 },
+    { x: new Date(2006, 0, 1), y: 24 },
+    { x: new Date(2007, 0, 1), y: 36 },
+    { x: new Date(2008, 0, 1), y: 38 },
+    { x: new Date(2009, 0, 1), y: 54 },
+    { x: new Date(2010, 0, 1), y: 57 },
+    { x: new Date(2011, 0, 1), y: 70 },
+    { x: new Date(2011, 0, 1), y: 80 },
+    { x: new Date(2011, 0, 1), y: 85 },
+    { x: new Date(2011, 0, 1), y: 55 },
+    { x: new Date(2011, 0, 1), y: 75 },
+    { x: new Date(2011, 0, 1), y: 59 },
+  ],
+  [
+    { x: new Date(2005, 0, 1), y: 28 },
+    { x: new Date(2006, 0, 1), y: 44 },
+    { x: new Date(2007, 0, 1), y: 48 },
+    { x: new Date(2008, 0, 1), y: 50 },
+    { x: new Date(2009, 0, 1), y: 66 },
+    { x: new Date(2010, 0, 1), y: 78 },
+    { x: new Date(2011, 0, 1), y: 84 },
+    { x: new Date(2011, 0, 1), y: 45 },
+    { x: new Date(2011, 0, 1), y: 67 },
+    { x: new Date(2011, 0, 1), y: 63 },
+    { x: new Date(2011, 0, 1), y: 57 },
+    { x: new Date(2011, 0, 1), y: 74 },
+  ],
+
+  [
+    { x: new Date(2005, 0, 1), y: 10 },
+    { x: new Date(2006, 0, 1), y: 20 },
+    { x: new Date(2007, 0, 1), y: 30 },
+    { x: new Date(2008, 0, 1), y: 39 },
+    { x: new Date(2009, 0, 1), y: 50 },
+    { x: new Date(2010, 0, 1), y: 70 },
+    { x: new Date(2011, 0, 1), y: 82 },
+    { x: new Date(2011, 0, 1), y: 59 },
+    { x: new Date(2011, 0, 1), y: 49 },
+    { x: new Date(2011, 0, 1), y: 77 },
+    { x: new Date(2011, 0, 1), y: 82 },
+    { x: new Date(2011, 0, 1), y: 71 },
+  ],
+];
+
+export const lineCustomSeries = [
+  { dataSource: lineChartData[0],
+    xName: 'x',
+    yName: 'y',
+    name: 'CO',
+    width: '2',
+    marker: { visible: true, width: 10, height: 10 },
+    type: 'Line' },
+
+  { dataSource: lineChartData[1],
+    xName: 'x',
+    yName: 'y',
+    name: 'NO',
+    width: '2',
+    marker: { visible: true, width: 10, height: 10 },
+    type: 'Line' },
+
+  { dataSource: lineChartData[2],
+    xName: 'x',
+    yName: 'y',
+    name: 'NO2',
+    width: '2',
+    marker: { visible: true, width: 10, height: 10 },
+    type: 'Line' },
+
+];
+
 
 export const customersGrid = [
   // { type: 'checkbox', width: '50' },
@@ -454,10 +531,10 @@ export const links = [
         name: 'PollutionDataTable',
         icon: <FaDatabase />,
       },
-      {
-        name: 'SensorInformation',
-        icon: <IoMdInformationCircle />,
-      },
+      // {
+      //   name: 'SensorInformation',
+      //   icon: <IoMdInformationCircle />,
+      // },
     ],
   },
 ];
@@ -487,13 +564,13 @@ export const cartData = [
 ];
 
 export const chatData = [
-  {
-    image:
-      avatar2,
-    message: 'Roman Joined the Team!',
-    desc: 'Congratulate him',
-    time: '9:08 AM',
-  },
+  // {
+  //   image:
+  //     avatar2,
+  //   message: 'Roman Joined the Team!',
+  //   desc: 'Congratulate him',
+  //   time: '9:08 AM',
+  // },
   {
     image:
       avatar3,
