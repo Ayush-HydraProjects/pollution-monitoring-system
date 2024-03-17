@@ -59,7 +59,7 @@ const LineChart = () => {
     const fetchData = async () => {
       if (latLon?.lat && latLon?.lon) {
         const response = await fetch(
-          `http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${latLon?.lat}&lon=${latLon?.lon}&start=${dates?.start}&end=${dates?.end}&appid=${process.env.REACT_APP_KEY}`
+          `https://api.openweathermap.org/data/2.5/air_pollution/history?lat=${latLon?.lat}&lon=${latLon?.lon}&start=${dates?.start}&end=${dates?.end}&appid=${process.env.REACT_APP_KEY}`
         );
         const responseData = await response.json();
         // setData(responseData);
