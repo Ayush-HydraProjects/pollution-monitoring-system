@@ -1,11 +1,16 @@
 import React from 'react';
-import {  AiOutlineShoppingCart,  AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
-import { IoMdInformationCircle } from "react-icons/io";
+import {
+  AiOutlineShoppingCart,
+  AiOutlineAreaChart,
+  AiOutlineBarChart,
+  AiOutlineStock,
+} from 'react-icons/ai';
+import { IoMdInformationCircle } from 'react-icons/io';
 import { FiShoppingBag } from 'react-icons/fi';
-import { FaDatabase } from "react-icons/fa6";
-import { GiWaterMill } from "react-icons/gi";
+import { FaDatabase } from 'react-icons/fa6';
+import { GiWaterMill } from 'react-icons/gi';
 import { RiContactsLine } from 'react-icons/ri';
-import { GiAbstract004 } from "react-icons/gi";
+import { GiAbstract004 } from 'react-icons/gi';
 import { GrLocation } from 'react-icons/gr';
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
@@ -23,47 +28,47 @@ import product7 from './product7.jpg';
 export const gridOrderImage = (props) => (
   <div>
     <img
-      className="rounded-xl h-20 md:ml-3"
+      className='rounded-xl h-20 md:ml-3'
       src={props.ProductImage}
-      alt="order-item"
+      alt='order-item'
     />
   </div>
 );
 
 export const gridOrderStatus = (props) => (
   <button
-    type="button"
+    type='button'
     style={{ background: props.StatusBg }}
-    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
+    className='text-white py-1 px-2 capitalize rounded-2xl text-md'
   >
     {props.Status}
   </button>
 );
 
 const gridEmployeeProfile = (props) => (
-  <div className="flex items-center gap-2">
+  <div className='flex items-center gap-2'>
     <img
-      className="rounded-full w-10 h-10"
+      className='rounded-full w-10 h-10'
       src={props.EmployeeImage}
-      alt="employee"
+      alt='employee'
     />
     <p>{props.Name}</p>
   </div>
 );
 
 const gridEmployeeCountry = (props) => (
-  <div className="flex items-center justify-center gap-2">
+  <div className='flex items-center justify-center gap-2'>
     <GrLocation />
     <span>{props.Country}</span>
   </div>
 );
 
 const customerGridImage = (props) => (
-  <div className="image flex gap-4">
+  <div className='image flex gap-4'>
     <img
-      className="rounded-full w-10 h-10"
+      className='rounded-full w-10 h-10'
       src={props.CustomerImage}
-      alt="employee"
+      alt='employee'
     />
     <div>
       <p>{props.CustomerName}</p>
@@ -73,8 +78,11 @@ const customerGridImage = (props) => (
 );
 
 const customerGridStatus = (props) => (
-  <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
-    <p style={{ background: props.StatusBg }} className="rounded-full h-3 w-3" />
+  <div className='flex gap-2 justify-center items-center text-gray-700 capitalize'>
+    <p
+      style={{ background: props.StatusBg }}
+      className='rounded-full h-3 w-3'
+    />
     <p>{props.Status}</p>
   </div>
 );
@@ -95,7 +103,6 @@ export const areaPrimaryYAxis = {
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
   labelStyle: { color: 'gray' },
-
 };
 export const barPrimaryXAxis = {
   valueType: 'Category',
@@ -156,7 +163,6 @@ export const areaCustomSeries = [
     opacity: '0.8',
     type: 'SplineArea',
     width: '2',
-
   },
   {
     dataSource: areaChartData[1],
@@ -261,21 +267,21 @@ export const colorMappingData = [
 ];
 
 export const rangeColorMapping = [
-  { label: '1°C to 10°C',
-    start: '1',
-    end: '10',
-    colors: colorMappingData[1] },
+  { label: '1°C to 10°C', start: '1', end: '10', colors: colorMappingData[1] },
 
-  { label: '11°C to 20°C',
+  {
+    label: '11°C to 20°C',
     start: '11',
     end: '20',
-    colors: colorMappingData[2] },
+    colors: colorMappingData[2],
+  },
 
-  { label: '21°C to 30°C',
+  {
+    label: '21°C to 30°C',
     start: '21',
     end: '30',
-    colors: colorMappingData[3] },
-
+    colors: colorMappingData[3],
+  },
 ];
 
 export const ColorMappingPrimaryXAxis = {
@@ -299,8 +305,6 @@ export const FinancialPrimaryXAxis = {
   crosshairTooltip: { enable: true },
   majorGridLines: { width: 0 },
 };
-
-
 
 export const FinancialPrimaryYAxis = {
   title: 'Price',
@@ -379,62 +383,72 @@ export const lineChartData = [
 ];
 
 export const lineCustomSeries = [
-  { dataSource: lineChartData[0],
+  {
+    dataSource: lineChartData[0],
     xName: 'x',
     yName: 'y',
     name: 'CO',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
+    type: 'Line',
+  },
 
-  { dataSource: lineChartData[1],
+  {
+    dataSource: lineChartData[1],
     xName: 'x',
     yName: 'y',
     name: 'NO',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
+    type: 'Line',
+  },
 
-  { dataSource: lineChartData[2],
+  {
+    dataSource: lineChartData[2],
     xName: 'x',
     yName: 'y',
     name: 'NO2',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
-
+    type: 'Line',
+  },
 ];
-
 
 export const customersGrid = [
   // { type: 'checkbox', width: '50' },
-  { field: 'SensorName',
+  {
+    field: 'SensorName',
     headerText: 'Sensor Name',
     width: '150',
-    textAlign: 'Center' },
-  { field: 'Status',
+    textAlign: 'Center',
+  },
+  {
+    field: 'Status',
     headerText: 'Status',
     width: '130',
     format: 'yMd',
     textAlign: 'Center',
-    template: customerGridStatus },
+    template: customerGridStatus,
+  },
   {
     field: 'Type',
     headerText: 'Type',
     width: '100',
     format: 'C2',
-    textAlign: 'Center' },
-  
-  { field: 'Location',
+    textAlign: 'Center',
+  },
+
+  {
+    field: 'Location',
     headerText: 'Location',
     width: '150',
-    textAlign: 'Center' },
-
+    textAlign: 'Center',
+  },
 ];
 
 export const customersData = [
   {
-      SensorName: 'Sensor 1',
+    SensorName: 'Sensor 1',
     Status: 'Active',
     StatusBg: '#8BE78B',
     Type: 'Air',
@@ -465,98 +479,104 @@ export const customersData = [
   {
     SensorName: 'Sensor 5',
     Status: 'Out of Order',
-    
+
     StatusBg: 'red',
     Type: 'Air',
     Location: 'Area 5',
   },
-
 ];
 
 export const employeesGrid = [
-  { headerText: 'Employee',
+  {
+    headerText: 'Employee',
     width: '150',
     template: gridEmployeeProfile,
-    textAlign: 'Center' },
-  { field: 'Name',
-    headerText: '',
-    width: '0',
     textAlign: 'Center',
   },
-  { field: 'Title',
+  { field: 'Name', headerText: '', width: '0', textAlign: 'Center' },
+  {
+    field: 'Title',
     headerText: 'Designation',
     width: '170',
     textAlign: 'Center',
   },
-  { headerText: 'Country',
+  {
+    headerText: 'Country',
     width: '120',
     textAlign: 'Center',
-    template: gridEmployeeCountry },
+    template: gridEmployeeCountry,
+  },
 
-  { field: 'HireDate',
+  {
+    field: 'HireDate',
     headerText: 'Hire Date',
     width: '135',
     format: 'yMd',
-    textAlign: 'Center' },
+    textAlign: 'Center',
+  },
 
-  { field: 'ReportsTo',
+  {
+    field: 'ReportsTo',
     headerText: 'Reports To',
     width: '120',
-    textAlign: 'Center' },
-  { field: 'EmployeeID',
+    textAlign: 'Center',
+  },
+  {
+    field: 'EmployeeID',
     headerText: 'Employee ID',
     width: '125',
-    textAlign: 'Center' },
+    textAlign: 'Center',
+  },
 ];
 
 export const links = [
   {
-    
+    title: '1',
     links: [
       {
-        name: 'AirPollutionChart',
-        icon: <GiAbstract004 />,
-      },
-      {
-        name: 'WaterPollutionChart',
-        icon: <GiWaterMill />,
-      },
-    ],
-    
-  },
-
-  {
-    links: [
-      {
-        name: 'PollutionDataTable',
+        name: 'Sensor Data',
+        path: 'PollutionDataTable',
         icon: <FaDatabase />,
       },
       // {
       //   name: 'SensorInformation',
+      //   path: 'SensorInformation',
       //   icon: <IoMdInformationCircle />,
       // },
+    ],
+  },
+  {
+    title: '2',
+    links: [
+      {
+        name: 'Air Pollution',
+        path: 'AirPollutionChart',
+        icon: <GiAbstract004 />,
+      },
+      {
+        name: 'Water Pollution',
+        path: 'WaterPollutionChart',
+        icon: <GiWaterMill />,
+      },
     ],
   },
 ];
 
 export const cartData = [
   {
-    image:
-      product5,
+    image: product5,
     name: 'butterscotch ice-cream',
     category: 'Milk product',
     price: '250',
   },
   {
-    image:
-      product6,
+    image: product6,
     name: 'Supreme fresh tomato',
     category: 'Vegetable Item',
     price: '$450',
   },
   {
-    image:
-      product7,
+    image: product7,
     name: 'Red color candy',
     category: 'Food Item',
     price: '$190',
@@ -572,22 +592,19 @@ export const chatData = [
   //   time: '9:08 AM',
   // },
   {
-    image:
-      avatar3,
+    image: avatar3,
     message: 'New message received',
     desc: 'Salma sent you new message',
     time: '11:56 AM',
   },
   {
-    image:
-      avatar4,
+    image: avatar4,
     message: 'New Payment received',
     desc: 'Check your earnings',
     time: '4:39 AM',
   },
   {
-    image:
-      avatar,
+    image: avatar,
     message: 'Jolly completed tasks',
     desc: 'Assign her new tasks',
     time: '1:12 AM',
@@ -624,34 +641,29 @@ export const themeColors = [
 
 export const ordersGrid = [
   {
-    field: 'OrderItems',
-    headerText: 'Sensor Name',
+    field: 'SensorName',
+    headerText: 'Sensor ID',
     width: '150',
-    editType: 'dropdownedit',
+    // editType: 'dropdownedit',
     textAlign: 'Center',
   },
-  {
-    field: 'TotalAmount',
-    headerText: 'Air Pollution',
-    textAlign: 'Center',
-    width: '150',
-  },
-  {
-    field: 'OrderID',
-    headerText: 'Water Pollution',
-    width: '120',
-    textAlign: 'Center',
-  },
-
   {
     field: 'Location',
     headerText: 'Location',
     width: '150',
-    textAlign: 'Center',
+    textAlign: 'left',
   },
+  // {
+  //   field: 'TotalAmount',
+  //   headerText: 'Air Pollution',
+  //   textAlign: 'Center',
+  //   width: '150',
+  // },
+  // {
+  //   width: '120',
+  //   textAlign: 'Center',
+  // },
 ];
-
-
 
 // save
 export const employeesData = [
@@ -662,8 +674,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-    avatar3,
+    EmployeeImage: avatar3,
   },
   {
     EmployeeID: 2,
@@ -672,8 +683,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar3,
+    EmployeeImage: avatar3,
   },
   {
     EmployeeID: 3,
@@ -682,8 +692,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar4,
+    EmployeeImage: avatar4,
   },
   {
     EmployeeID: 4,
@@ -692,8 +701,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 5,
@@ -702,8 +710,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 4,
@@ -712,8 +719,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 5,
@@ -722,8 +728,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 1,
@@ -732,9 +737,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-    avatar2,
-
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 2,
@@ -743,8 +746,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar3,
+    EmployeeImage: avatar3,
   },
   {
     EmployeeID: 3,
@@ -753,8 +755,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar4,
+    EmployeeImage: avatar4,
   },
   {
     EmployeeID: 4,
@@ -763,8 +764,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 5,
@@ -773,8 +773,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 4,
@@ -783,8 +782,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 5,
@@ -793,8 +791,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 1,
@@ -803,8 +800,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-    avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 2,
@@ -813,8 +809,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar3,
+    EmployeeImage: avatar3,
   },
   {
     EmployeeID: 3,
@@ -823,8 +818,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar4,
+    EmployeeImage: avatar4,
   },
   {
     EmployeeID: 4,
@@ -833,8 +827,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 5,
@@ -843,8 +836,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 4,
@@ -853,8 +845,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 5,
@@ -863,8 +854,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 1,
@@ -873,9 +863,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-    avatar2,
-
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 2,
@@ -884,8 +872,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar3,
+    EmployeeImage: avatar3,
   },
   {
     EmployeeID: 3,
@@ -894,8 +881,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar4,
+    EmployeeImage: avatar4,
   },
   {
     EmployeeID: 4,
@@ -904,8 +890,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 5,
@@ -914,8 +899,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 4,
@@ -924,8 +908,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 5,
@@ -934,8 +917,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 1,
@@ -944,9 +926,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-    avatar2,
-
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 2,
@@ -955,8 +935,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar3,
+    EmployeeImage: avatar3,
   },
   {
     EmployeeID: 3,
@@ -965,8 +944,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar4,
+    EmployeeImage: avatar4,
   },
   {
     EmployeeID: 4,
@@ -975,8 +953,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 5,
@@ -985,8 +962,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 4,
@@ -995,8 +971,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 5,
@@ -1005,8 +980,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 1,
@@ -1015,9 +989,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-    avatar2,
-
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 2,
@@ -1026,8 +998,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar3,
+    EmployeeImage: avatar3,
   },
   {
     EmployeeID: 3,
@@ -1036,8 +1007,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar4,
+    EmployeeImage: avatar4,
   },
   {
     EmployeeID: 4,
@@ -1046,8 +1016,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 5,
@@ -1056,8 +1025,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 4,
@@ -1066,8 +1034,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 5,
@@ -1076,8 +1043,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 1,
@@ -1086,9 +1052,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-    avatar2,
-
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 2,
@@ -1097,8 +1061,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar3,
+    EmployeeImage: avatar3,
   },
   {
     EmployeeID: 3,
@@ -1107,8 +1070,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar4,
+    EmployeeImage: avatar4,
   },
   {
     EmployeeID: 4,
@@ -1117,8 +1079,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 5,
@@ -1127,8 +1088,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 4,
@@ -1137,8 +1097,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 5,
@@ -1147,8 +1106,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 1,
@@ -1157,9 +1115,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-    avatar2,
-
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 2,
@@ -1168,8 +1124,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar3,
+    EmployeeImage: avatar3,
   },
   {
     EmployeeID: 3,
@@ -1178,8 +1133,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar4,
+    EmployeeImage: avatar4,
   },
   {
     EmployeeID: 4,
@@ -1188,8 +1142,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 5,
@@ -1198,8 +1151,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 4,
@@ -1208,8 +1160,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 5,
@@ -1218,8 +1169,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 1,
@@ -1228,9 +1178,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-    avatar2,
-
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 2,
@@ -1239,8 +1187,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar3,
+    EmployeeImage: avatar3,
   },
   {
     EmployeeID: 3,
@@ -1249,8 +1196,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar4,
+    EmployeeImage: avatar4,
   },
   {
     EmployeeID: 4,
@@ -1259,8 +1205,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
   {
     EmployeeID: 5,
@@ -1269,8 +1214,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 4,
@@ -1279,8 +1223,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
+    EmployeeImage: avatar,
   },
   {
     EmployeeID: 5,
@@ -1289,46 +1232,41 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
+    EmployeeImage: avatar2,
   },
 ];
+
+export const locLatLon = {
+  Brussels: { lat: 50.8467, lon: 4.3525 },
+  Antwerp: { lat: 51.2178, lon: 4.4003 },
+  Gent: { lat: 51.0536, lon: 3.7253 },
+  Charleroi: { lat: 50.4, lon: 4.4333 },
+  Anderlecht: { lat: 50.8333, lon: 4.3333 },
+};
 
 // save
 export const ordersData = [
   {
-    OrderID: 39,
-    TotalAmount: 32,
-    OrderItems: 'Sensor 1',
-    Location: 'Area 1',
+    SensorName: 'PMS5001',
+    Location: 'Brussels',
   },
   {
-    OrderID: 42,
-    TotalAmount: 46,
-    OrderItems: 'Sensor 2',
-    Location: 'Area 2',
+    SensorName: 'PMS5002',
+    Location: 'Antwerp',
   },
   {
-    OrderID: 45,
-    TotalAmount: 96,
-    OrderItems: 'Sensor 3',
-    Location: 'Area 3',
+    SensorName: 'PMS5003',
+    Location: 'Gent',
   },
   {
-    OrderID: 75,
-    TotalAmount: 23,
-    OrderItems: 'Sensor 4',
-    Location: 'Area 4',
+    SensorName: 'PMS5004',
+    Location: 'Charleroi',
   },
   {
-    OrderID: 89,
-    TotalAmount: 49,
-    OrderItems: 'Sensor 5',
-    Location: 'Area 5',
+    SensorName: 'PMS5005',
+    Location: 'Anderlecht',
   },
 ];
-
-
 
 // save
 export const contextMenuItems = [
@@ -1349,7 +1287,6 @@ export const contextMenuItems = [
   'LastPage',
   'NextPage',
 ];
-
 
 export const stackedChartData = [
   [
@@ -1373,25 +1310,23 @@ export const stackedChartData = [
 ];
 
 export const stackedCustomSeries = [
-
-  { dataSource: stackedChartData[0],
+  {
+    dataSource: stackedChartData[0],
     xName: 'x',
     yName: 'y',
     name: 'Expected',
     type: 'StackingColumn',
     background: 'blue',
-
   },
 
-  { dataSource: stackedChartData[1],
+  {
+    dataSource: stackedChartData[1],
     xName: 'x',
     yName: 'y',
     name: 'Excess',
     type: 'StackingColumn',
     background: 'red',
-
   },
-
 ];
 
 export const stackedPrimaryXAxis = {
@@ -1416,4 +1351,3 @@ export const stackedPrimaryYAxis = {
   minorTickLines: { width: 0 },
   labelFormat: '{value}',
 };
-

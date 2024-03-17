@@ -49,7 +49,7 @@ const Maps = (props) => {
         <TileLayer url={mapType[0]} />
         <Marker position={markerPosition} icon={icon}>
           <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
+            {position[0]}, {position[1]}
           </Popup>
         </Marker>
         <ResetCenterView selectedPosition={selectedPosition} />
