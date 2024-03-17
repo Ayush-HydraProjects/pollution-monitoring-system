@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import process from 'process';
 
 import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
@@ -43,7 +44,7 @@ const LineChart = () => {
     end: Math.ceil(new Date().getTime() / 1000),
   });
 
-  const API_KEY = 'd60258cd8688bb5e13fccaf09ca396ea';
+  // const API_KEY = 'd60258cd8688bb5e13fccaf09ca396ea';
 
   useEffect(() => {
     const cityName = searchParams.get('location');
@@ -58,7 +59,7 @@ const LineChart = () => {
     const fetchData = async () => {
       if (latLon?.lat && latLon?.lon) {
         const response = await fetch(
-          `http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${latLon?.lat}&lon=${latLon?.lon}&start=${dates?.start}&end=${dates?.end}&appid=${API_KEY}`
+          `http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${latLon?.lat}&lon=${latLon?.lon}&start=${dates?.start}&end=${dates?.end}&appid=${process.env.REACT_APP_KEY}`
         );
         const responseData = await response.json();
         // setData(responseData);
