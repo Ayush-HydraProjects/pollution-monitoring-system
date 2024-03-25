@@ -62,13 +62,13 @@ const Maps = (props) => {
               />
             </FeatureGroup>
           </LayersControl.Overlay>
-          <LayersControl.Overlay name='Marker'>
+          {/* <LayersControl.Overlay name='Marker'>
             <FeatureGroup color='purple'>
               <Marker position={position}>
                 <Popup></Popup>
               </Marker>
             </FeatureGroup>
-          </LayersControl.Overlay>
+          </LayersControl.Overlay> */}
         </LayersControl>
       </Map>
     </div>

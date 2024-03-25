@@ -26,6 +26,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 import Grid from '@mui/system/Unstable_Grid/Grid';
 import { Box, Typography } from '@mui/material';
 import { locLatLon } from '../data/dummy';
+import { sendEmailAlert } from '../components/Email';
 
 // const { RangePicker } = DatePicker;
 
@@ -37,14 +38,13 @@ const LineChart = () => {
   const [dataSets, setDatasets] = useState({});
   const [xAxisData, setXAxisData] = useState();
   const [yAxisData, setYAxisData] = useState({});
+  const [maxDate, setMaxDate] = useState('');
   const [dates, setDates] = useState({
     start: Math.ceil(
       new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).getTime() / 1000
     ),
     end: Math.ceil(new Date().getTime() / 1000),
   });
-
-  // const API_KEY = 'd60258cd8688bb5e13fccaf09ca396ea';
 
   useEffect(() => {
     const cityName = searchParams.get('location');
@@ -53,6 +53,11 @@ const LineChart = () => {
     } else {
       setLatLon({ lat: 50.8476, lon: 4.3572, cityName: 'Brussels' });
     }
+
+    const afterFourDays = new Date();
+    afterFourDays.setDate(afterFourDays.getDate() + 4);
+    const formattedDate = afterFourDays.toISOString().split('T')[0];
+    setMaxDate(formattedDate);
   }, [searchParams]);
 
   useEffect(() => {
@@ -109,7 +114,8 @@ const LineChart = () => {
         yData[data] = getYAxisData({ min, max });
       });
     setYAxisData(yData);
-  }, [dataSets]);
+    sendEmailAlert(yData, latLon?.cityName);
+  }, [dataSets, latLon?.cityName]);
 
   const getYAxisData = ({ min, max }) => {
     return {
@@ -159,45 +165,47 @@ const LineChart = () => {
         <DatePicker
           // defaultValue={dayjs('2019-09-03', dateFormat)}
           minDate={dayjs('2023-01-01', dateFormat)}
-          maxDate={dayjs('2024-03-20', dateFormat)}
+          maxDate={dayjs(maxDate, dateFormat)}
           onChange={handleDates}
         />
       </Box>
       <Grid container columns={2}>
         {element?.length > 0 &&
-          element?.map((name) => (
-            <Grid key={name}>
-              <ChartComponent
-                id={`line-chart-${name}`}
-                height='420px'
-                width='50%'
-                primaryXAxis={xAxisData}
-                primaryYAxis={yAxisData?.[name]}
-                title={name.toUpperCase()}
-                chartArea={{ border: { width: 0 } }}
-                tooltip={{ enable: true }}
-                background={currentMode === 'Dark' ? '#33373E' : '#fff'}
-                legendSettings={{ background: 'white' }}
-              >
-                <Inject services={[LineSeries, DateTime, Legend, Tooltip]} />
-                <SeriesCollectionDirective>
-                  {[
-                    {
-                      dataSource: dataSets?.[name],
-                      xName: 'x',
-                      yName: 'y',
-                      name: name.toUpperCase(),
-                      width: '2',
-                      marker: { visible: true, width: 10, height: 10 },
-                      type: 'Line',
-                    },
-                  ].map((item, index) => {
-                    return <SeriesDirective key={index} {...item} />;
-                  })}
-                </SeriesCollectionDirective>
-              </ChartComponent>
-            </Grid>
-          ))}
+          element?.map((name) => {
+            return (
+              <Grid key={name}>
+                <ChartComponent
+                  id={`line-chart-${name}`}
+                  height='420px'
+                  width='50%'
+                  primaryXAxis={xAxisData}
+                  primaryYAxis={yAxisData?.[name]}
+                  title={name.toUpperCase()}
+                  chartArea={{ border: { width: 0 } }}
+                  tooltip={{ enable: true }}
+                  background={currentMode === 'Dark' ? '#33373E' : '#fff'}
+                  legendSettings={{ background: 'white' }}
+                >
+                  <Inject services={[LineSeries, DateTime, Legend, Tooltip]} />
+                  <SeriesCollectionDirective>
+                    {[
+                      {
+                        dataSource: dataSets?.[name],
+                        xName: 'x',
+                        yName: 'y',
+                        name: name.toUpperCase(),
+                        width: '2',
+                        marker: { visible: true, width: 10, height: 10 },
+                        type: 'Line',
+                      },
+                    ].map((item, index) => {
+                      return <SeriesDirective key={index} {...item} />;
+                    })}
+                  </SeriesCollectionDirective>
+                </ChartComponent>
+              </Grid>
+            );
+          })}
         {/* <Grid>
           <ChartComponent
             id='line-chart-no'
