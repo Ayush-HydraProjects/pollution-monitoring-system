@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  FeatureGroup,
-  LayersControl,
-  Map,
-  Marker,
-  Popup,
-  TileLayer,
-} from 'react-leaflet';
+import { FeatureGroup, LayersControl, Map, TileLayer } from 'react-leaflet';
 import HeatmapLayer from '../HeatMap/HeatmapLayer';
 import { addressPoints } from '../HeatMap/realworld.10000.js';
 import 'leaflet/dist/leaflet.css';
@@ -49,9 +42,6 @@ const Maps = (props) => {
           </LayersControl.BaseLayer>
           <LayersControl.Overlay name='Heatmap' checked>
             <FeatureGroup color='purple'>
-              <Marker position={[50.05, -0.09]}>
-                <Popup></Popup>
-              </Marker>
               <HeatmapLayer
                 fitBoundsOnLoad
                 fitBoundsOnUpdate

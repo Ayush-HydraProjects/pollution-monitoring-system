@@ -9,6 +9,7 @@ import { useStateContext } from './contexts/ContextProvider';
 import WaterPollution from './pages/Waterpollution';
 import Home from './pages/Home';
 import AirPollution from './pages/AirPollution';
+import WorkInProgressScreen from './components/WorkInProgressScreen';
 
 const App = () => {
   const {
@@ -17,6 +18,7 @@ const App = () => {
     currentMode,
     activeMenu,
     themeSettings,
+    isMobile,
   } = useStateContext();
 
   useEffect(() => {
@@ -28,7 +30,32 @@ const App = () => {
     }
   }, [setCurrentColor, setCurrentMode]);
 
-  return (
+  const { setActiveMenu, setScreenSize, screenSize, setMobileView } =
+    useStateContext();
+
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [setScreenSize]);
+
+  useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+      setMobileView(true);
+    } else {
+      setMobileView(false);
+      setActiveMenu(true);
+    }
+  }, [screenSize, setActiveMenu, setMobileView]);
+
+  return isMobile ? (
+    <WorkInProgressScreen />
+  ) : (
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
