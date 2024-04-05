@@ -1,6 +1,3 @@
-export { default as Ecommerce } from './AirPollution';
-export { default as Orders } from './Orders';
-export { default as Employees } from './Employees';
-export { default as Customers } from './Customers';
-
-export { default as Stacked } from './Charts/Stacked';
+export { default as AirPollution } from './AirPollution';
+export { default as PollutionTable } from './PollutionTable';
+export { default as SensorInformation } from './SensorInformation';

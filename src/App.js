@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Navbar, Sidebar, ThemeSettings } from './components';
-import { Orders, Customers } from './pages';
+import { PollutionTable, SensorInformation } from './pages';
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
-import WaterPollution from './pages/Waterpollution';
+import WaterPollution from './pages/WaterPollution';
 import Home from './pages/Home';
 import AirPollution from './pages/AirPollution';
 import WorkInProgressScreen from './components/WorkInProgressScreen';
@@ -92,7 +92,6 @@ const App = () => {
             </div>
             <div>
               {themeSettings && <ThemeSettings />}
-              {/* <ThemeSettings /> */}
 
               <Routes>
                 {/* dashboard  */}
@@ -104,8 +103,14 @@ const App = () => {
                 />
 
                 {/* pages  */}
-                <Route path='/PollutionDataTable' element={<Orders />} />
-                <Route path='/SensorInformation' element={<Customers />} />
+                <Route
+                  path='/PollutionDataTable'
+                  element={<PollutionTable />}
+                />
+                <Route
+                  path='/SensorInformation'
+                  element={<SensorInformation />}
+                />
               </Routes>
             </div>
             {/* <Footer /> */}

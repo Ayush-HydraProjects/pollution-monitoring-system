@@ -3,13 +3,8 @@ import { FeatureGroup, LayersControl, Map, TileLayer } from 'react-leaflet';
 import HeatmapLayer from '../HeatMap/HeatmapLayer';
 import { addressPoints } from '../HeatMap/realworld.10000.js';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
 
 const position = [50.8476, 4.3572];
-const icon = L.icon({
-  iconUrl: './placeholder.png',
-  iconSize: [38, 38],
-});
 
 const mapType = [
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',

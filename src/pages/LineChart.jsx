@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import process from 'process';
+import React, { useEffect, useState } from 'react';
 
 import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
@@ -7,26 +7,19 @@ import { useSearchParams } from 'react-router-dom';
 
 import {
   ChartComponent,
+  DateTime,
+  Inject,
+  Legend,
+  LineSeries,
   SeriesCollectionDirective,
   SeriesDirective,
-  Inject,
-  LineSeries,
-  DateTime,
-  Legend,
   Tooltip,
 } from '@syncfusion/ej2-react-charts';
-// import LineGraph from '../components/Charts/LineGraph';
-import {
-  lineCustomSeries,
-  LinePrimaryXAxis,
-  LinePrimaryYAxis,
-} from '../data/mcphs';
-// import { lineCustomSeries, LinePrimaryXAxis, LinePrimaryYAxis } from '../data/dummy';
-import { useStateContext } from '../contexts/ContextProvider';
-import Grid from '@mui/system/Unstable_Grid/Grid';
 import { Box, Typography } from '@mui/material';
-import { locLatLon } from '../data/dummy';
+import Grid from '@mui/system/Unstable_Grid/Grid';
 import { sendEmailAlert } from '../components/Email';
+import { useStateContext } from '../contexts/ContextProvider';
+import { locLatLon } from '../data/staticData';
 
 // const { RangePicker } = DatePicker;
 
@@ -206,27 +199,6 @@ const LineChart = () => {
               </Grid>
             );
           })}
-        {/* <Grid>
-          <ChartComponent
-            id='line-chart-no'
-            height='420px'
-            width='50%'
-            primaryXAxis={LinePrimaryXAxis}
-            primaryYAxis={LinePrimaryYAxis}
-            title='Air Pollution Chart'
-            chartArea={{ border: { width: 0 } }}
-            tooltip={{ enable: true }}
-            background={currentMode === 'Dark' ? '#33373E' : '#fff'}
-            legendSettings={{ background: 'white' }}
-          >
-            <Inject services={[LineSeries, DateTime, Legend, Tooltip]} />
-            <SeriesCollectionDirective>
-              {lineCustomSeries.map((item, index) => {
-                return <SeriesDirective key={index} {...item} />;
-              })}
-            </SeriesCollectionDirective>
-          </ChartComponent>
-        </Grid> */}
       </Grid>
     </div>
   );

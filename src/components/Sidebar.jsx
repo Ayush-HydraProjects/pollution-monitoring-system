@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { SiShopware } from 'react-icons/si';
 
-import { links } from '../data/dummy';
+import { links } from '../data/staticData';
 import { useStateContext } from '../contexts/ContextProvider';
 import { Box } from '@mui/material';
 

@@ -14,11 +14,11 @@ import {
   Edit,
   Inject,
 } from '@syncfusion/ej2-react-grids';
-import { ordersData, contextMenuItems, ordersGrid } from '../data/dummy';
+import { sensorName, sensorTableHeader } from '../data/staticData';
 import { Header } from '../components';
 import { CircularProgress } from '@mui/material';
 
-const Orders = () => {
+const PollutionTable = () => {
   let navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
 
@@ -36,7 +36,7 @@ const Orders = () => {
       ) : (
         <GridComponent
           id='gridcomp'
-          dataSource={ordersData}
+          dataSource={sensorName}
           recordClick={handleColumnClick}
           allowPaging
           allowSorting
@@ -45,7 +45,7 @@ const Orders = () => {
           }}
         >
           <ColumnsDirective>
-            {ordersGrid.map((item, index) => (
+            {sensorTableHeader.map((item, index) => (
               <ColumnDirective key={index} {...item} />
             ))}
           </ColumnsDirective>
@@ -67,4 +67,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default PollutionTable;
