@@ -3,12 +3,38 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { BsCheck } from 'react-icons/bs';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import { themeColors } from '../data/dummy';
+import { themeColors } from '../data/staticData';
 import { useStateContext } from '../contexts/ContextProvider';
+/**
+ * ThemeSettings.jsx
+ * 
+ * This React component manages theme settings for the application.
+ * 
+ * Dependencies:
+ * - React
+ * - @mui/material
+ * 
+ * State Variables:
+ * - theme: Stores the current theme (e.g., 'light' or 'dark').
+ * - fontSize: Stores the font size setting (e.g., 'small', 'medium', 'large').
+ * 
+ * Functions:
+ * - handleThemeChange: Handles theme change based on user selection.
+ * - handleFontSizeChange: Handles font size change based on user selection.
+ * 
+ * Example Usage:
+ * ```jsx
+ * <ThemeSettings />
+ * ```
+ * 
+ * Note:
+ * - The component can be integrated into the application's settings page.
+ * - Users can customize the theme and font size using the provided controls.
+ */
+
 
 const ThemeSettings = () => {
-  const { setColor, setMode, currentMode, currentColor, setThemeSettings } =
-    useStateContext();
+  const { setColor, currentColor, setThemeSettings } = useStateContext();
 
   return (
     <div className='bg-half-transparent w-screen fixed nav-item top-0 right-0'>

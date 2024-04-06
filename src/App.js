@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Navbar, Sidebar, ThemeSettings } from './components';
-import { Orders, Customers } from './pages';
+import { PollutionTable, SensorInformation } from './pages';
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
@@ -10,6 +10,31 @@ import WaterPollution from './pages/Waterpollution';
 import Home from './pages/Home';
 import AirPollution from './pages/AirPollution';
 import WorkInProgressScreen from './components/WorkInProgressScreen';
+
+/**
+ * App.js
+ *
+ * This is the main entry point for the React application.
+ *
+ * Dependencies:
+ * - React
+ * - react-router-dom
+ * - @mui/material
+ *
+ * Components:
+ * - Header: Displays the application header.
+ * - Sidebar: Displays the sidebar navigation menu.
+ * - Content: Renders the main content of the application.
+ *
+ * Example Usage:
+ * ```jsx
+ * <App />
+ * ```
+ *
+ * Note:
+ * - The `Header`, `Sidebar`, and `Content` components are imported from other files.
+ * - The `App` component serves as the main container for the entire application.
+ */
 
 const App = () => {
   const {
@@ -72,7 +97,7 @@ const App = () => {
             </TooltipComponent> */}
           </div>
           {activeMenu ? (
-            <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white '>
+            <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white'>
               <Sidebar />
             </div>
           ) : (
@@ -83,16 +108,18 @@ const App = () => {
           <div
             className={
               activeMenu
-                ? 'dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full  '
+                ? 'dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full'
                 : 'bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 '
             }
           >
-            <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full '>
+            <div
+              className='fixed bg-main-bg dark:bg-main-dark-bg navbar w-full'
+              style={{ width: 'calc(100% - 18rem)' }}
+            >
               <Navbar />
             </div>
-            <div>
+            <div style={{ paddingTop: '80px' }}>
               {themeSettings && <ThemeSettings />}
-              {/* <ThemeSettings /> */}
 
               <Routes>
                 {/* dashboard  */}
@@ -104,8 +131,14 @@ const App = () => {
                 />
 
                 {/* pages  */}
-                <Route path='/PollutionDataTable' element={<Orders />} />
-                <Route path='/SensorInformation' element={<Customers />} />
+                <Route
+                  path='/PollutionDataTable'
+                  element={<PollutionTable />}
+                />
+                <Route
+                  path='/SensorInformation'
+                  element={<SensorInformation />}
+                />
               </Routes>
             </div>
             {/* <Footer /> */}

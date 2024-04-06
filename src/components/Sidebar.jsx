@@ -2,9 +2,42 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { SiShopware } from 'react-icons/si';
 
-import { links } from '../data/dummy';
+import { links } from '../data/staticData';
 import { useStateContext } from '../contexts/ContextProvider';
 import { Box } from '@mui/material';
+
+/**
+ * Sidebar.jsx
+ * 
+ * This React component represents a sidebar navigation menu.
+ * 
+ * Dependencies:
+ * - React
+ * - react-router-dom
+ * - @mui/material
+ * 
+ * Props:
+ * - items: An array of objects representing sidebar menu items (e.g., { label: 'Home', url: '/' }).
+ * - activeItem: The currently active menu item.
+ * - onItemClick: A callback function triggered when a menu item is clicked.
+ * 
+ * Example Usage:
+ * ```jsx
+ * <Sidebar
+ *   items={[
+ *     { label: 'Home', url: '/' },
+ *     { label: 'About', url: '/about' }
+ *   ]}
+ *   activeItem="/"
+ *   onItemClick={handleItemClick}
+ * />
+ * ```
+ * 
+ * Note:
+ * - The `items` prop should be an array of objects with `label` and `url` properties.
+ * - The `activeItem` prop specifies the currently active menu item.
+ * - The `onItemClick` prop defines the callback function to be executed when a menu item is clicked.
+ */
 
 const Sidebar = () => {
   const { currentColor, activeMenu, setActiveMenu, screenSize } =

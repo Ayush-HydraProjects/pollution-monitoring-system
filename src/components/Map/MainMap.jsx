@@ -3,13 +3,42 @@ import { FeatureGroup, LayersControl, Map, TileLayer } from 'react-leaflet';
 import HeatmapLayer from '../HeatMap/HeatmapLayer';
 import { addressPoints } from '../HeatMap/realworld.10000.js';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
+
+/**
+ * MainMap.jsx
+ * 
+ * This React component renders a map with various layers, including a heatmap layer.
+ * 
+ * Dependencies:
+ * - React
+ * - react-leaflet
+ * - leaflet-heatmap
+ * 
+ * Props:
+ * - data: An array of data points (latitude, longitude, intensity) for the heatmap.
+ * - radius: The radius of each heatmap point.
+ * - maxZoom: The maximum zoom level at which the heatmap is visible.
+ * - gradient: An array of colors representing the gradient for the heatmap.
+ * 
+ * Example Usage:
+ * ```jsx
+ * <MainMap
+ *   data={heatmapData}
+ *   radius={20}
+ *   maxZoom={10}
+ *   gradient={['#00ff00', '#ff0000']}
+ * />
+ * ```
+ * 
+ * Note:
+ * - The `data` prop should be an array of objects with the following structure:
+ *   { lat: number, lng: number, intensity: number }
+ * - The `radius` prop determines the size of each heatmap point.
+ * - The `maxZoom` prop controls the visibility of the heatmap at different zoom levels.
+ * - The `gradient` prop defines the color gradient for the heatmap.
+ */
 
 const position = [50.8476, 4.3572];
-const icon = L.icon({
-  iconUrl: './placeholder.png',
-  iconSize: [38, 38],
-});
 
 const mapType = [
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -17,23 +46,20 @@ const mapType = [
 ];
 
 const Maps = (props) => {
-  // function for generating lat-long for surrounding area
-  // const getLatLong = () => {
-  //   function generateDataPoint(baseLat, baseLong, identifierPrefix, offsetRange) {
-  //     const latOffset = Math.random() * offsetRange - offsetRange / 2;
-  //     const longOffset = Math.random() * offsetRange - offsetRange / 2;
-  //     const newLat = baseLat + latOffset;
-  //     const newLong = baseLong + longOffset;
-  //     const newIdentifier = identifierPrefix + (Math.floor(Math.random() * 10000) + 10000); // Add 10000 to avoid overlap with existing IDs
-  //     return [newLat.toFixed(5), newLong.toFixed(5), newIdentifier];
-  //   }
-  // }
+
 
   return (
-    <div style={{ width: '100%', height: 'calc(100vh - 111px)' }}>
+    <div
+      style={{
+        width: '100%',
+        height: '100vh',
+        paddingTop: '30px',
+      }}
+    >
       <Map
         center={position}
-        zoom={12}
+        zoom={6}
+        zoomControl={true}
         style={{ width: '100%', height: '100%' }}
       >
         <LayersControl>
@@ -52,13 +78,6 @@ const Maps = (props) => {
               />
             </FeatureGroup>
           </LayersControl.Overlay>
-          {/* <LayersControl.Overlay name='Marker'>
-            <FeatureGroup color='purple'>
-              <Marker position={position}>
-                <Popup></Popup>
-              </Marker>
-            </FeatureGroup>
-          </LayersControl.Overlay> */}
         </LayersControl>
       </Map>
     </div>

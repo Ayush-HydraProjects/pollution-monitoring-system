@@ -14,11 +14,37 @@ import {
   Edit,
   Inject,
 } from '@syncfusion/ej2-react-grids';
-import { ordersData, contextMenuItems, ordersGrid } from '../data/dummy';
+import { sensorName, sensorTableHeader } from '../data/staticData';
 import { Header } from '../components';
 import { CircularProgress } from '@mui/material';
 
-const Orders = () => {
+/**
+ * PollutionTable.jsx
+ * 
+ * This is a React component that displays a table of pollution data.
+ * 
+ * Dependencies:
+ * - React
+ * - @mui/material
+ * - react-router-dom
+ * - @syncfusion/ej2-react-grids
+ * 
+ * State Variables:
+ * - latLon: Stores the latitude and longitude of the location.
+ * - isLoading: A boolean indicating whether the data is still loading.
+ * 
+ * Functions:
+ * - handleColumnClick: Handles the event when a column in the table is clicked.
+ * 
+ * useEffect Hooks:
+ * - The useEffect hook navigates to the AirPollutionChart component when a column is clicked.
+ * 
+ * Component Return:
+ * - The component returns a div element that contains a Header component and a GridComponent.
+ * - The GridComponent displays the pollution data in a table format.
+ */
+
+const PollutionTable = () => {
   let navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
 
@@ -36,7 +62,7 @@ const Orders = () => {
       ) : (
         <GridComponent
           id='gridcomp'
-          dataSource={ordersData}
+          dataSource={sensorName}
           recordClick={handleColumnClick}
           allowPaging
           allowSorting
@@ -45,7 +71,7 @@ const Orders = () => {
           }}
         >
           <ColumnsDirective>
-            {ordersGrid.map((item, index) => (
+            {sensorTableHeader.map((item, index) => (
               <ColumnDirective key={index} {...item} />
             ))}
           </ColumnsDirective>
@@ -67,4 +93,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default PollutionTable;
