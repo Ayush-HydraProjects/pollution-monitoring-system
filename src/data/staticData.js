@@ -2,6 +2,19 @@ import React from 'react';
 import { FaDatabase } from 'react-icons/fa6';
 import { GiAbstract004, GiWaterMill } from 'react-icons/gi';
 
+/**
+ * staticData.js
+ * 
+ * This file contains static data used throughout the application.
+ * 
+ * Example Usage:
+ * - Import the required data from this file into other components or modules.
+ * - Use the exported data as needed for configuration, constants, or mock data.
+ * 
+ * Note:
+ * - This file should not contain any dynamic or runtime-generated data.
+ */
+
 const sensorStatus = (props) => (
   <div className='flex gap-2 justify-center items-center text-gray-700 capitalize'>
     <p

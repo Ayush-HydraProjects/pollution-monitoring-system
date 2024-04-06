@@ -1,5 +1,34 @@
 import React from 'react';
 
+/**
+ * Footer.jsx
+ * 
+ * This React component represents the footer section of a web page.
+ * 
+ * Dependencies:
+ * - React
+ * - @mui/material
+ * 
+ * Props:
+ * - copyright: The copyright text to display in the footer.
+ * - links: An array of objects representing footer links (e.g., { label: 'Privacy Policy', url: '/privacy' }).
+ * 
+ * Example Usage:
+ * ```jsx
+ * <Footer
+ *   copyright="© 2024 My Company"
+ *   links={[
+ *     { label: 'Privacy Policy', url: '/privacy' },
+ *     { label: 'Terms of Service', url: '/terms' }
+ *   ]}
+ * />
+ * ```
+ * 
+ * Note:
+ * - The `copyright` prop specifies the copyright text to display.
+ * - The `links` prop should be an array of objects with `label` and `url` properties.
+ */
+
 const Footer = () => {
   return (
     <footer className='footer'>

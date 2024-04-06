@@ -14,6 +14,43 @@ import AccordionCustom from '../components/AccordionCustom';
 
 // const { RangePicker } = DatePicker;
 
+/**
+ * LineChart.jsx
+ * 
+ * This is a React component that displays a line chart of air pollution data.
+ * 
+ * Dependencies:
+ * - React
+ * - @mui/material
+ * - @mui/system
+ * - react-router-dom
+ * 
+ * State Variables:
+ * - latLon: Stores the latitude and longitude of the location.
+ * - dataSets: Stores the pollution data sets.
+ * - xAxisData: Stores the data for the x-axis of the chart.
+ * - yAxisData: Stores the data for the y-axis of the chart.
+ * - maxDate: Stores the maximum date for the data.
+ * - dates: Stores the start and end dates for the data.
+ * - isExpanded: Stores the state of the accordion elements in the UI.
+ * 
+ * Functions:
+ * - handleChangeExpanded: Handles the expansion and collapse of the accordion elements.
+ * - handleResponse: Handles the response from the fetch request to the API.
+ * - getYAxisData: Returns the y-axis data for the chart.
+ * 
+ * useEffect Hooks:
+ * - The first useEffect hook sets the latitude and longitude based on the location search parameter.
+ * - The second useEffect hook fetches the pollution data from the API.
+ * - The third useEffect hook handles the response from the API and sets the data sets.
+ * - The fourth useEffect hook sets the y-axis data for the chart.
+ * - The fifth useEffect hook sets the x-axis data for the chart.
+ * 
+ * Component Return:
+ * - The component returns a div element that contains a Box component and a map of AccordionCustom components.
+ * - Each AccordionCustom component displays a line chart of the pollution data for a specific pollutant.
+ */
+
 const LineChart = () => {
   // const { currentMode } = useStateContext();
   let [searchParams, setSearchParams] = useSearchParams();

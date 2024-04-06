@@ -1,3 +1,29 @@
+/**
+ * Email.js
+ * 
+ * This file contains a React component for rendering an email form.
+ * 
+ * Dependencies:
+ * - React
+ * - @mui/material
+ * 
+ * Props:
+ * - onSubmit: A callback function triggered when the form is submitted.
+ * - onCancel: A callback function triggered when the user cancels the form.
+ * 
+ * Example Usage:
+ * ```jsx
+ * <EmailForm
+ *   onSubmit={handleFormSubmit}
+ *   onCancel={handleFormCancel}
+ * />
+ * ```
+ * 
+ * Note:
+ * - The `onSubmit` prop specifies the callback function to be executed when the form is submitted.
+ * - The `onCancel` prop defines the callback function to be executed when the user cancels the form.
+ */
+
 export const sendEmailAlert = (yData, cityName) => {
   var PM25 = yData['PM25'];
   var PM10 = yData['PM10'];

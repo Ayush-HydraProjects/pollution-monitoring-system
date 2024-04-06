@@ -8,6 +8,39 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Grid from '@mui/material/Grid';
 import PropTypes from 'prop-types';
 
+/**
+ * AccordionCustom.js
+ * 
+ * This React component is a customized accordion element that displays collapsible content.
+ * 
+ * Dependencies:
+ * - React
+ * - @mui/material
+ * 
+ * Props:
+ * - title: The title of the accordion section.
+ * - content: The content to be displayed when the accordion is expanded.
+ * - expanded: A boolean indicating whether the accordion is initially expanded.
+ * - onChange: A callback function to handle changes in the accordion state.
+ * 
+ * Example Usage:
+ * ```jsx
+ * <AccordionCustom
+ *   title="FAQ"
+ *   content="Frequently asked questions about our product."
+ *   expanded={false}
+ *   onChange={handleAccordionChange}
+ * />
+ * ```
+ * 
+ * Note:
+ * - The `title` prop specifies the title of the accordion section.
+ * - The `content` prop defines the content to be displayed when the accordion is expanded.
+ * - The `expanded` prop determines whether the accordion is initially expanded or collapsed.
+ * - The `onChange` prop is a callback function that handles changes in the accordion state.
+ */
+
+
 function AccordionCustom({
   title,
   secondaryTitle,

@@ -1,3 +1,38 @@
+/**
+ * HeatmapLayer.js
+ * 
+ * This file contains a React component for rendering a heatmap layer on a map.
+ * 
+ * Dependencies:
+ * - React
+ * - react-leaflet
+ * - leaflet-heatmap
+ * 
+ * Props:
+ * - data: An array of data points (latitude, longitude, intensity) for the heatmap.
+ * - radius: The radius of each heatmap point.
+ * - maxZoom: The maximum zoom level at which the heatmap is visible.
+ * - gradient: An array of colors representing the gradient for the heatmap.
+ * 
+ * Example Usage:
+ * ```jsx
+ * <HeatmapLayer
+ *   data={heatmapData}
+ *   radius={20}
+ *   maxZoom={10}
+ *   gradient={['#00ff00', '#ff0000']}
+ * />
+ * ```
+ * 
+ * Note:
+ * - The `data` prop should be an array of objects with the following structure:
+ *   { lat: number, lng: number, intensity: number }
+ * - The `radius` prop determines the size of each heatmap point.
+ * - The `maxZoom` prop controls the visibility of the heatmap at different zoom levels.
+ * - The `gradient` prop defines the color gradient for the heatmap.
+ */
+
+
 exports.__esModule = true;
 
 var _class, _temp;

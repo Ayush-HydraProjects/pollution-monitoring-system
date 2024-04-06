@@ -11,6 +11,32 @@ import Home from './pages/Home';
 import AirPollution from './pages/AirPollution';
 import WorkInProgressScreen from './components/WorkInProgressScreen';
 
+
+/**
+ * App.js
+ * 
+ * This is the main entry point for the React application.
+ * 
+ * Dependencies:
+ * - React
+ * - react-router-dom
+ * - @mui/material
+ * 
+ * Components:
+ * - Header: Displays the application header.
+ * - Sidebar: Displays the sidebar navigation menu.
+ * - Content: Renders the main content of the application.
+ * 
+ * Example Usage:
+ * ```jsx
+ * <App />
+ * ```
+ * 
+ * Note:
+ * - The `Header`, `Sidebar`, and `Content` components are imported from other files.
+ * - The `App` component serves as the main container for the entire application.
+ */
+
 const App = () => {
   const {
     setCurrentColor,

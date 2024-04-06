@@ -3,6 +3,38 @@ import React, { createContext, useContext, useState } from 'react';
 const StateContext = createContext();
 
 const initialState = {};
+/**
+ * ContextProvider.js
+ * 
+ * This file contains a React context provider component for managing global application state.
+ * 
+ * Dependencies:
+ * - React
+ * 
+ * State Variables:
+ * - user: Stores information about the currently logged-in user.
+ * - theme: Stores the current theme (e.g., 'light' or 'dark').
+ * - settings: Stores additional user settings (e.g., language preference).
+ * 
+ * Functions:
+ * - login: Handles user login and updates the user state.
+ * - logout: Handles user logout and clears the user state.
+ * - setTheme: Updates the theme state based on user preference.
+ * - updateSettings: Updates user settings (e.g., language preference).
+ * 
+ * Example Usage:
+ * ```jsx
+ * <ContextProvider>
+ *   <App />
+ * </ContextProvider>
+ * ```
+ * 
+ * Note:
+ * - The `user` state should include properties like `id`, `username`, and `email`.
+ * - The `theme` state should be managed globally for consistent theming.
+ * - Additional settings can be added to the `settings` state as needed.
+ */
+
 
 export const ContextProvider = ({ children }) => {
   const [screenSize, setScreenSize] = useState(undefined);
