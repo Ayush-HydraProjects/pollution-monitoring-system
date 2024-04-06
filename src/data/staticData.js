@@ -167,11 +167,11 @@ export const links = [
         path: 'AirPollutionChart',
         icon: <GiAbstract004 />,
       },
-      {
-        name: 'Water Pollution',
-        path: 'WaterPollutionChart',
-        icon: <GiWaterMill />,
-      },
+      // {
+      //   name: 'Water Pollution',
+      //   path: 'WaterPollutionChart',
+      //   icon: <GiWaterMill />,
+      // },
     ],
   },
 ];

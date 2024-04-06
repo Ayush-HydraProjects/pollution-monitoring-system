@@ -6,11 +6,18 @@ export const sendEmailAlert = (yData, cityName) => {
   var NH3 = yData['NH3'];
   var SO2 = yData['SO2'];
 
-  if (PM25 > 25 || PM10 > 50 || O3 > 180 || NO2 > 200 || NH3 > 200 || SO2 > 500) {
+  if (
+    PM25 > 25 ||
+    PM10 > 50 ||
+    O3 > 180 ||
+    NO2 > 200 ||
+    NH3 > 200 ||
+    SO2 > 500
+  ) {
     var formData = new FormData();
-    formData.append('service_id', 'service_metvero');
-    formData.append('template_id', 'template_um6yo78');
-    formData.append('user_id', 'Y_4gtYIN5qN9ENgnB');
+    formData.append('service_id', process.env.REACT_APP_SERVICE_ID);
+    formData.append('template_id', process.env.REACT_APP_TEMPLATE_ID);
+    formData.append('user_id', process.env.REACT_APP_USER_ID);
     formData.append(
       'subject',
       `Alert: Pollution level exceeded the limit in ${cityName}`
@@ -29,8 +36,9 @@ export const sendEmailAlert = (yData, cityName) => {
       body: formData,
     })
       .then((response) => {
-        response.json()})
-        
+        response.json();
+      })
+
       .then((data) => {
         console.log('Your mail is sent!', data);
       })
@@ -42,38 +50,32 @@ export const sendEmailAlert = (yData, cityName) => {
   // console.log(PM25, PM10, O3, NO2, NH3, SO2);
 };
 
- export const fetchData = async (url,location) => {
-   
-      const response = await fetch(
-        url
-      );
-      const responseData = await response.json();
-      // setData(responseData);
-      handleResponse(responseData,location);
-    
-  };
- 
+export const fetchData = async (url, location) => {
+  const response = await fetch(url);
+  const responseData = await response.json();
+  // setData(responseData);
+  handleResponse(responseData, location);
+};
 
-const handleResponse = (data,location) => {
+const handleResponse = (data, location) => {
   const yData = {
-  PM25:[],
-    PM10:[],
-    O3:[],
-    NO2:[],
-    NH3:[],
-    SO2:[]
+    PM25: [],
+    PM10: [],
+    O3: [],
+    NO2: [],
+    NH3: [],
+    SO2: [],
   };
 
-  
   for (let index = 0; index < data.feeds.length; index++) {
     const element = data.feeds[index];
     yData.PM25 = element.field1;
-    yData.PM10= element.field2;
-    yData.O3= element.field3;
+    yData.PM10 = element.field2;
+    yData.O3 = element.field3;
     yData.NO2 = element.field4;
     yData.NH3 = element.field5;
     yData.SO2 = element.field6;
 
-    sendEmailAlert(yData,location);
+    sendEmailAlert(yData, location);
   }
 };

@@ -5,7 +5,7 @@ const Navbar = () => {
     <div className='landing-page'>
       <div className='content'>
         <h1 className='welcome'>
-          Monitor the Environment: Pollution Tracking Platform
+          Monitor the Environment: Pollution Tracking System
         </h1>
       </div>
     </div>

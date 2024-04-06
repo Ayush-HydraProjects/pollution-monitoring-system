@@ -1,21 +1,21 @@
 import process from 'process';
 import React, { useEffect, useState } from 'react';
 
-import { DatePicker } from 'antd';
-import dayjs from 'dayjs';
+// import { DatePicker } from 'antd';
+// import dayjs from 'dayjs';
 import { useSearchParams } from 'react-router-dom';
-
 
 import { Box, Typography } from '@mui/material';
 import Grid from '@mui/system/Unstable_Grid/Grid';
 import { fetchData } from '../components/Email';
-import { useStateContext } from '../contexts/ContextProvider';
+// import { useStateContext } from '../contexts/ContextProvider';
 import { locLatLon } from '../data/staticData';
+import AccordionCustom from '../components/AccordionCustom';
 
 // const { RangePicker } = DatePicker;
 
 const LineChart = () => {
-  const { currentMode } = useStateContext();
+  // const { currentMode } = useStateContext();
   let [searchParams, setSearchParams] = useSearchParams();
 
   const [latLon, setLatLon] = useState();
@@ -29,6 +29,23 @@ const LineChart = () => {
     ),
     end: Math.ceil(new Date().getTime() / 1000),
   });
+  const [isExpanded, setIsExpanded] = useState({
+    'PM2.5': true,
+    PM10: true,
+    O3: true,
+    NO2: true,
+    NH3: true,
+    SO2: true,
+  });
+
+  const handleChangeExpanded = (panel) => () => {
+    setIsExpanded((prevState) => {
+      return {
+        ...prevState,
+        [panel]: !prevState[panel],
+      };
+    });
+  };
 
   useEffect(() => {
     const cityName = searchParams.get('location');
@@ -55,7 +72,7 @@ const LineChart = () => {
         handleResponse(responseData);
       }
     };
-    fetchData();
+    // fetchData();
   }, [dates, latLon?.lat, latLon?.lon]);
 
   const handleResponse = (data) => {
@@ -99,10 +116,12 @@ const LineChart = () => {
       });
     setYAxisData(yData);
     const url = {
-      "Brussels":"https://api.thingspeak.com/channels/2493571/feeds.json?results=20",
-      "Ghent" : "https://api.thingspeak.com/channels/2497529/feeds.json?results=20"
-  }
-  fetchData(url[latLon?.cityName],latLon?.cityName);
+      Brussels:
+        'https://api.thingspeak.com/channels/2493571/feeds.json?results=20',
+      Ghent:
+        'https://api.thingspeak.com/channels/2497529/feeds.json?results=20',
+    };
+    fetchData(url[latLon?.cityName], latLon?.cityName);
   }, [dataSets, latLon?.cityName]);
 
   const getYAxisData = ({ min, max }) => {
@@ -119,17 +138,12 @@ const LineChart = () => {
     };
   };
 
-  const handleDates = (e) => {
-    setDates({
-      start: Math.floor(dayjs(e?.$d).startOf('day').valueOf() / 1000),
-      end: Math.floor(dayjs(e?.$d).endOf('day').valueOf() / 1000),
-    });
-  };
-
-  const channelId = {
-    Brussels: 2493571,
-    Ghent: 2497529,
-  };
+  // const handleDates = (e) => {
+  //   setDates({
+  //     start: Math.floor(dayjs(e?.$d).startOf('day').valueOf() / 1000),
+  //     end: Math.floor(dayjs(e?.$d).endOf('day').valueOf() / 1000),
+  //   });
+  // };
 
   useEffect(() => {
     setXAxisData({
@@ -146,15 +160,83 @@ const LineChart = () => {
     });
   }, [dates]);
 
-  // const element = ['co', 'nh3', 'no', 'no2', 'o3', 'so2'];
-  const dateFormat = 'YYYY-MM-DD';
+  const pollutantList = [
+    {
+      name: 'PM2.5',
+      lampId: {
+        Brussels: '831394',
+        Ghent: '832833',
+      },
+      graphId: 1,
+    },
+    {
+      name: 'PM10',
+      lampId: {
+        Brussels: '832844',
+        Ghent: '832836',
+      },
+      graphId: 2,
+    },
+    {
+      name: 'O3',
+      lampId: {
+        Brussels: '832846',
+        Ghent: '832854',
+      },
+      graphId: 3,
+    },
+    {
+      name: 'NO2',
+      lampId: {
+        Brussels: '832845',
+        Ghent: '832855',
+      },
+      graphId: 4,
+    },
+    {
+      name: 'NH3',
+      lampId: {
+        Brussels: '832847',
+        Ghent: '832856',
+      },
+      graphId: 5,
+    },
+    {
+      name: 'SO2',
+      lampId: {
+        Brussels: '832848',
+        Ghent: '832857',
+      },
+      graphId: 6,
+    },
+  ];
+
+  const channelId = {
+    Brussels: 2493571,
+    Ghent: 2497529,
+  };
+
+  // const dateFormat = 'YYYY-MM-DD';
   return (
     <div>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Typography variant='h5' sx={{ fontWeigh: 500 }}>
-          Air Pollution Chart
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: {
+            xl: '80%',
+            lg: '100%',
+          },
+        }}
+        pb={2}
+      >
+        <Typography variant='h5' width={'25%'} sx={{ fontWeigh: 500 }}>
+          {/* Air Pollution Chart */}
         </Typography>
-        <Typography variant='h5'>{latLon?.cityName}</Typography>
+        <Typography variant='h5'>
+          <b>{latLon?.cityName}</b>
+        </Typography>
+        <Typography width={'25%'} />
         {/* <DatePicker
           // defaultValue={dayjs('2019-09-03', dateFormat)}
           minDate={dayjs('2023-01-01', dateFormat)}
@@ -201,26 +283,89 @@ const LineChart = () => {
           })}
       </Grid> */}
 
-      <Grid container>
-        {Array(6)
-          .fill('')
-          .map((link, index) => (
-            <Grid item key={link} xs={6}>
-              <iframe
-                title='Pollution Chart 1'
-                className='max-w-md mx-auto mt-8 border rounded-lg shadow-lg relative overflow-hidden w-full'
-                width={450}
-                height={260}
-                // style={{ border: '1px solid #cccccc' }}
-                src={`https://thingspeak.com/channels/${
-                  channelId[searchParams.get('location') || 'Brussels']
-                }/charts/${
-                  index + 1
-                }?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=20&type=line&update=15`}
-              ></iframe>
+      {pollutantList.map((pollutant, index) => {
+        return (
+          <AccordionCustom
+            title={
+              <Typography fontSize={'20px'} fontWeight={500}>
+                {pollutant?.name}
+              </Typography>
+            }
+            expanded={isExpanded?.[pollutant?.name]}
+            // handleChange={handleChangeExpanded(pollutant?.name)}
+            sx={{
+              '& .MuiAccordionSummary-root': {
+                background: '#ececec',
+                borderRadius: '0.5rem',
+              },
+              '& .MuiAccordionSummary-content': {
+                display: 'flex',
+                justifyContent: 'center',
+              },
+              width: {
+                xl: '80%',
+                lg: '100%',
+              },
+            }}
+          >
+            <Grid container key={pollutant.lampId[latLon?.cityName]} my={4}>
+              <Grid
+                item
+                lg={6}
+                md={12}
+                xs={6}
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  pb: {
+                    xs: 2,
+                    lg: 0,
+                  },
+                }}
+              >
+                <iframe
+                  title={`Pollution Chart ${pollutant?.graphId}`}
+                  className='max-w-md mx-auto border rounded-lg shadow-lg relative overflow-hidden w-full'
+                  width={450}
+                  height={260}
+                  src={`https://thingspeak.com/channels/${
+                    channelId[latLon?.cityName]
+                  }/charts/${
+                    pollutant?.graphId
+                  }?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=20&title=${
+                    pollutant?.name
+                  }&type=line&xaxis=Time&yaxis=%C2%B5g%2Fm3`}
+                ></iframe>
+              </Grid>
+              <Grid
+                item
+                lg={6}
+                md={12}
+                xs={6}
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  pb: {
+                    xs: 2,
+                    lg: 0,
+                  },
+                }}
+              >
+                <iframe
+                  title={`Pollution Chart ${pollutant?.graphId}`}
+                  width={450}
+                  height={260}
+                  className='border rounded-lg shadow-lg'
+                  // style='border: 1px solid #cccccc;'
+                  src={`https://thingspeak.com/channels/${
+                    channelId[latLon?.cityName]
+                  }/widgets/${pollutant.lampId[latLon?.cityName]}`}
+                ></iframe>
+              </Grid>
             </Grid>
-          ))}
-      </Grid>
+          </AccordionCustom>
+        );
+      })}
     </div>
   );
 };
