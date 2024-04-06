@@ -5,19 +5,10 @@ import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import { useSearchParams } from 'react-router-dom';
 
-import {
-  ChartComponent,
-  DateTime,
-  Inject,
-  Legend,
-  LineSeries,
-  SeriesCollectionDirective,
-  SeriesDirective,
-  Tooltip,
-} from '@syncfusion/ej2-react-charts';
+
 import { Box, Typography } from '@mui/material';
 import Grid from '@mui/system/Unstable_Grid/Grid';
-import { sendEmailAlert } from '../components/Email';
+import { fetchData } from '../components/Email';
 import { useStateContext } from '../contexts/ContextProvider';
 import { locLatLon } from '../data/staticData';
 
@@ -107,7 +98,11 @@ const LineChart = () => {
         yData[data] = getYAxisData({ min, max });
       });
     setYAxisData(yData);
-    sendEmailAlert(yData, latLon?.cityName);
+    const url = {
+      "Brussels":"https://api.thingspeak.com/channels/2493571/feeds.json?results=20",
+      "Ghent" : "https://api.thingspeak.com/channels/2497529/feeds.json?results=20"
+  }
+  fetchData(url[latLon?.cityName],latLon?.cityName);
   }, [dataSets, latLon?.cityName]);
 
   const getYAxisData = ({ min, max }) => {
