@@ -155,12 +155,12 @@ const LineChart = () => {
           Air Pollution Chart
         </Typography>
         <Typography variant='h5'>{latLon?.cityName}</Typography>
-        <DatePicker
+        {/* <DatePicker
           // defaultValue={dayjs('2019-09-03', dateFormat)}
           minDate={dayjs('2023-01-01', dateFormat)}
           maxDate={dayjs(maxDate, dateFormat)}
           onChange={handleDates}
-        />
+        /> */}
       </Box>
       {/* <Grid container columns={2}>
         {element?.length > 0 &&
