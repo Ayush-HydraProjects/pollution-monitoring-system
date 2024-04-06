@@ -236,18 +236,6 @@ export const sensorName = [
   },
   {
     SensorName: 'PMS5002',
-    Location: 'Antwerp',
-  },
-  {
-    SensorName: 'PMS5003',
-    Location: 'Gent',
-  },
-  {
-    SensorName: 'PMS5004',
-    Location: 'Charleroi',
-  },
-  {
-    SensorName: 'PMS5005',
-    Location: 'Anderlecht',
+    Location: 'Ghent',
   },
 ];

@@ -131,6 +131,11 @@ const LineChart = () => {
     });
   };
 
+  const channelId = {
+    Brussels: 2493571,
+    Ghent: 2497529,
+  };
+
   useEffect(() => {
     setXAxisData({
       valueType: 'DateTime',
@@ -146,7 +151,7 @@ const LineChart = () => {
     });
   }, [dates]);
 
-  const element = ['co', 'nh3', 'no', 'no2', 'o3', 'so2'];
+  // const element = ['co', 'nh3', 'no', 'no2', 'o3', 'so2'];
   const dateFormat = 'YYYY-MM-DD';
   return (
     <div>
@@ -162,7 +167,7 @@ const LineChart = () => {
           onChange={handleDates}
         />
       </Box>
-      <Grid container columns={2}>
+      {/* <Grid container columns={2}>
         {element?.length > 0 &&
           element?.map((name) => {
             return (
@@ -199,6 +204,27 @@ const LineChart = () => {
               </Grid>
             );
           })}
+      </Grid> */}
+
+      <Grid container>
+        {Array(6)
+          .fill('')
+          .map((link, index) => (
+            <Grid item key={link} xs={6}>
+              <iframe
+                title='Pollution Chart 1'
+                className='max-w-md mx-auto mt-8 border rounded-lg shadow-lg relative overflow-hidden w-full'
+                width={450}
+                height={260}
+                // style={{ border: '1px solid #cccccc' }}
+                src={`https://thingspeak.com/channels/${
+                  channelId[searchParams.get('location') || 'Brussels']
+                }/charts/${
+                  index + 1
+                }?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=20&type=line&update=15`}
+              ></iframe>
+            </Grid>
+          ))}
       </Grid>
     </div>
   );
