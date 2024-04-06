@@ -303,7 +303,7 @@ const LineChart = () => {
                 justifyContent: 'center',
               },
               width: {
-                xl: '80%',
+                xl: '90%',
                 lg: '100%',
               },
             }}

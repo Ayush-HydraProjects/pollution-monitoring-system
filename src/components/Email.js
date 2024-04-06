@@ -6,14 +6,7 @@ export const sendEmailAlert = (yData, cityName) => {
   var NH3 = yData['NH3'];
   var SO2 = yData['SO2'];
 
-  if (
-    PM25 > 25 ||
-    PM10 > 50 ||
-    O3 > 180 ||
-    NO2 > 200 ||
-    NH3 > 200 ||
-    SO2 > 500
-  ) {
+  
     var formData = new FormData();
     formData.append('service_id', process.env.REACT_APP_SERVICE_ID);
     formData.append('template_id', process.env.REACT_APP_TEMPLATE_ID);
@@ -48,7 +41,7 @@ export const sendEmailAlert = (yData, cityName) => {
   }
 
   // console.log(PM25, PM10, O3, NO2, NH3, SO2);
-};
+;
 
 export const fetchData = async (url, location) => {
   const response = await fetch(url);
@@ -76,8 +69,21 @@ const handleResponse = (data, location) => {
     yData.NH3 = element.field5;
     yData.SO2 = element.field6;
 
-    if(process.env.REACT_APP_FLAG){
-      sendEmailAlert(yData,location);
-      }
-  }
+    if (
+      yData.PM25 > 25 ||
+      yData.PM10 > 50 ||
+      yData.O3 > 180 ||
+      yData.NO2 > 200 ||
+      yData.NH3 > 200 ||
+      yData.SO2 > 500
+    ){
+      if(process.env.REACT_APP_FLAG){
+        sendEmailAlert(yData,location);
+        }
+        break;
+    }
+
+    }
+
+    
 };
