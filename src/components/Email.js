@@ -76,6 +76,8 @@ const handleResponse = (data, location) => {
     yData.NH3 = element.field5;
     yData.SO2 = element.field6;
 
-    sendEmailAlert(yData, location);
+    if(process.env.REACT_APP_FLAG){
+      sendEmailAlert(yData,location);
+      }
   }
 };
