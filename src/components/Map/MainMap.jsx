@@ -25,10 +25,17 @@ const Maps = (props) => {
   // }
 
   return (
-    <div style={{ width: '100%', height: 'calc(100vh - 111px)' }}>
+    <div
+      style={{
+        width: '100%',
+        height: '100vh',
+        paddingTop: '30px',
+      }}
+    >
       <Map
         center={position}
-        zoom={12}
+        zoom={6}
+        zoomControl={true}
         style={{ width: '100%', height: '100%' }}
       >
         <LayersControl>
